@@ -7,7 +7,7 @@
 </div>
 
 <div class="input-group">
-  <input type="text" class="form-control" (keydown)="onAdd(itemTitle)" #itemTitle>
+  <input type="text" class="form-control" (keyup.enter)="onAdd(itemTitle)" #itemTitle>
   <div class="input-group-btn" (click)="onAdd(itemTitle)">
     <button class="btn btn-secondary" type="button">Add</button>
   </div>
