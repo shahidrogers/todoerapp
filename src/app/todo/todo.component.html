@@ -1,0 +1,28 @@
+<div class="jumbotron" style="padding: 45px 0px">
+  <h4 class="text-center">TodoerApp</h4>
+  <p class="text-center">
+    {{counter}} items are in the list
+    <br> {{outstandingCounter}} items outstanding
+  </p>
+</div>
+
+<div class="input-group">
+  <input type="text" class="form-control" #itemTitle>
+  <div class="input-group-btn" (click)="onAdd(itemTitle)">
+    <button class="btn btn-secondary" type="button">Add</button>
+  </div>
+</div>
+
+<div style="margin: 5px 0px">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let item of toDoListArray">
+      <span class="hover-cursor" [class.text-success]="item.isChecked" (click)="alterCheck(item.$key, item.isChecked)">
+        <i class="fa fa-lg" [ngClass]="item.isChecked?'fa-check-circle-o':'fa-circle-thin'"></i>
+      </span>
+      {{item.title}}
+      <span class="hover-cursor text-danger pull-right" (click)="onDelete(item.$key)">
+        <i class="fa fa-trash-o fa-lg"></i>
+      </span>
+    </li>
+  </ul>
+</div>
